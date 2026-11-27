@@ -177,10 +177,10 @@ function fit(){
   var s=Math.max(0.2,Math.min(aw/W,ah/H));
   wrap.style.width=Math.floor(W*s)+'px';wrap.style.height=Math.floor(H*s)+'px';
   wrap.style.setProperty('--u',s.toFixed(4));
-  var dpr=Math.min(window.devicePixelRatio||1,2.5);
+  var dpr=Math.min(window.devicePixelRatio||1,isTouch?1.5:2.5);
   cv.width=Math.round(W*s*dpr);cv.height=Math.round(H*s*dpr);
   SC=cv.width/W;
-  ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+  ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality=isTouch?'low':'high';
   needRotate();
 }
 function needRotate(){
